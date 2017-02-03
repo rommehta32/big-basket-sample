@@ -14,12 +14,12 @@ default: &default
   encoding: utf8
   pool: 15
   username: root
-  password:
+  password: p@ssw0rd
   socket: /tmp/mysql.sock
 
 development:
   <<: *default
-  database: big_basket_development
+  database: big_basket_dev
 
 # Warning: The database defined as "test" will be erased and
 # re-generated from your development database when you run "rake".

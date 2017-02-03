@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="dataSourceStorageLocal">
+    <data-source name="MySql - big_basket_dev@localhost" uuid="e43ceb18-81c2-419f-ac47-f43ea5169998">
+      <secret-storage>master_key</secret-storage>
+      <user-name>root</user-name>
+      <schema-pattern>big_basket_dev.*</schema-pattern>
+      <default-schemas>big_basket_dev.*</default-schemas>
+    </data-source>
+  </component>
+</project>
