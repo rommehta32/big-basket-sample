@@ -3,72 +3,56 @@
 // Easily pump out default styles, as well as :hover, :focus, :active,
 // and disabled options for all buttons
 
-@mixin button-variant($color, $background, $border, $disabled-color, $disabled-bg) {
+@mixin button-variant($color, $background, $border) {
   color: $color;
   background-color: $background;
-  text-decoration: none;
-  border: 1px solid transparent;
-  cursor: pointer;
+  border-color: $border;
 
   &:focus,
   &.focus {
     color: $color;
     background-color: darken($background, 10%);
-    border-color: darken($border, 25%);
+        border-color: darken($border, 25%);
   }
   &:hover {
     color: $color;
-    //background-color: darken($background, 10%);
-    // border-color: darken($border, 12%);
-    border: 1px solid $border;
+    background-color: darken($background, 10%);
+        border-color: darken($border, 12%);
   }
   &:active,
   &.active,
   .open > &.dropdown-toggle {
     color: $color;
     background-color: darken($background, 10%);
-    border-color: transparent;
-    outline: 0;
+        border-color: darken($border, 12%);
 
     &:hover,
     &:focus,
     &.focus {
       color: $color;
       background-color: darken($background, 17%);
-      border-color: transparent;
-      outline: 0;
+          border-color: darken($border, 25%);
     }
   }
   &:active,
   &.active,
   .open > &.dropdown-toggle {
     background-image: none;
-    outline: 0;
   }
   &.disabled,
   &[disabled],
   fieldset[disabled] & {
-    &,
     &:hover,
     &:focus,
-    &.focus,
-    &:active,
-    &.active {
-      background-color: $disabled-bg;
-      border-color: transparent;
-      outline: 0;
-      color: $disabled-color;
+    &.focus {
+      background-color: $background;
+          border-color: $border;
     }
-  }
-
-  &:visited {
-    outline: 0;
   }
 
   .badge {
     color: $background;
     background-color: $color;
-    outline: 0;
   }
 }
 
@@ -77,7 +61,5 @@
   padding: $padding-vertical $padding-horizontal;
   font-size: $font-size;
   line-height: $line-height;
-  //border-radius: 0;
-  outline: 0;
-
+  border-radius: $border-radius;
 }

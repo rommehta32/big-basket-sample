@@ -1,13 +1,13 @@
 //
 // Modals
 // --------------------------------------------------
+
 // .modal-open      - body class for killing the scroll
 // .modal           - container to scroll within
 // .modal-dialog    - positioning shell for the actual modal
 // .modal-content   - actual modal w/ bg and corners and shit
-// Kill the scroll on the body
-@import "vendor/bootstrap/variables";
 
+// Kill the scroll on the body
 .modal-open {
   overflow: hidden;
 }
@@ -33,11 +33,8 @@
     @include translate(0, -25%);
     @include transition-transform(0.3s ease-out);
   }
-  &.in .modal-dialog {
-    @include translate(0, 0)
-  }
+  &.in .modal-dialog { @include translate(0, 0) }
 }
-
 .modal-open .modal {
   overflow-x: hidden;
   overflow-y: auto;
@@ -54,54 +51,13 @@
 .modal-content {
   position: relative;
   background-color: $modal-content-bg;
-  //border: 1px solid $modal-content-fallback-border-color; //old browsers fallback (ie8 etc)
-  //border: 1px solid $modal-content-border-color;
-  //border-radius: $border-radius-large;
-  @include box-shadow(0 3px 9px rgba(0, 0, 0, .5));
+  border: 1px solid $modal-content-fallback-border-color; //old browsers fallback (ie8 etc)
+  border: 1px solid $modal-content-border-color;
+  border-radius: $border-radius-large;
+  @include box-shadow(0 3px 9px rgba(0,0,0,.5));
   background-clip: padding-box;
   // Remove focus outline from opened modal
   outline: 0;
-}
-
-//  ECLT Modal
-.vertical-alignment-helper {
-  display:table;
-  height: 100%;
-  width: 100%;
-  pointer-events:none;
-}
-.vertical-align-center {
-  /* To center vertically */
-  display: table-cell;
-  vertical-align: middle;
-  pointer-events:none;
-}
-.modal-content {
-  /* Bootstrap sets the size of the modal in the modal-dialog class, we need to inherit it */
-  width:inherit;
-  height:inherit;
-  /* To center horizontally */
-  margin: 0 auto;
-  pointer-events:all;
-}
-
-.eclt-modal-content {
-  /* Bootstrap sets the size of the modal in the modal-dialog class, we need to inherit it */
-  width:inherit;
-  height:inherit;
-  /* To center horizontally */
-  margin: 0 auto;
-  pointer-events:all;
-
-  position: relative;
-  background-color: $modal-content-bg;
-  border: none;
-  @include box-shadow(0 3px 9px rgba(0, 0, 0, .5));
-  background-clip: padding-box;
-  // Remove focus outline from opened modal
-  outline: 0;
-  border-radius: 2px;
-
 }
 
 // Modal background
@@ -114,58 +70,26 @@
   z-index: $zindex-modal-background;
   background-color: $modal-backdrop-bg;
   // Fade for backdrop
-  &.fade {
-    @include opacity(0);
-  }
-  &.in {
-    @include opacity($modal-backdrop-opacity);
-  }
+  &.fade { @include opacity(0); }
+  &.in { @include opacity($modal-backdrop-opacity); }
 }
 
 // Modal header
 // Top section of the modal w/ title and dismiss
 .modal-header {
   padding: $modal-title-padding;
-  //border-bottom: 1px solid $modal-header-border-color;
-  min-height: ($modal-title-padding + $modal-title-line-height);
-  background-color: #145B9B;
-  color: #FFFFFF;
-}
-.basic-modal-header{
-  background-color: $colorModalHeader;
-  text-align: left;
-  .modal-title{
-    text-transform: capitalize !important;
-  }
-}
-
-.eclt-modal-header {
-  padding: 0px;
   border-bottom: 1px solid $modal-header-border-color;
-  min-height: ($modal-title-padding + $modal-title-line-height);
-  max-height:55px;
-  background-color: $colorModalHeader;
-  color: #000000;
-  border-top-left-radius: 2px;
-  border-top-right-radius: 2px;
-  @media screen and (max-width: $screen-sm-max) {
-    max-height: 85px;
-  }
+  @include clearfix;
 }
-
 // Close icon
 .modal-header .close {
   margin-top: -2px;
-  outline: none;
 }
 
 // Title text within header
 .modal-title {
   margin: 0;
   line-height: $modal-title-line-height;
-  text-transform: uppercase;
-  padding-left: 15px;
-
 }
 
 // Modal body
@@ -179,7 +103,7 @@
 .modal-footer {
   padding: $modal-inner-padding;
   text-align: right; // right align buttons
-  //border-top: 1px solid $modal-footer-border-color;
+  border-top: 1px solid $modal-footer-border-color;
   @include clearfix; // clear it in case folks use .pull-* classes on buttons
 
   // Properly space out buttons
@@ -214,106 +138,13 @@
     margin: 30px auto;
   }
   .modal-content {
-    @include box-shadow(0 5px 15px rgba(0, 0, 0, .5));
+    @include box-shadow(0 5px 15px rgba(0,0,0,.5));
   }
 
   // Modal sizes
-  .modal-sm {
-    width: $modal-sm;
-  }
-  .modal-4 {
-    width: $modal-4;
-  }
-  .modal-5 {
-    width: $modal-5;
-  }
-  .modal-7 {
-    width: $modal-7;
-  }
-  .modal-8 {
-    width: $modal-8;
-  }
-  .modal-6-5 {
-    width: $modal-6-5;
-  }
-  .modal-lg {
-    width: $modal-7;
-  }
+  .modal-sm { width: $modal-sm; }
 }
 
 @media (min-width: $screen-md-min) {
-  .modal-lg {
-    width: $modal-lg;
-  }
-}
-@media (max-width: $screen-xs-max) {
-  .modal-lg {
-    width: $modal-sm;
-  }
-}
-
-.eclt-modal-back-button {
-  color: $colorModalClose;
-  text-transform: uppercase;
-  text-decoration: none;
-  text-align: center;
-  padding-top: 11px;
-  letter-spacing: 1.5px;
-  cursor: pointer;
-  margin-right: 20px;
-  &:focus, &:active{
-    outline: none;
-  }
-  img{
-    &:focus, &:active{
-      outline: none;
-    }
-  }
-}
-
-.eclt-modal-title {
-  padding: 11px 20px;
-  font-size: 25px;
-  font-weight: 100;
-  color: $colorBlack;
-  text-align: left;
-  width: 85%;
-
-  @media (max-width: $screen-xs-max) {
-    font-size: 18px;
-  }
-
-}
-.close {
-  font-size: ($font-size-base * 1.5);
-  font-weight: $close-font-weight;
-  line-height: 1;
-  color: $close-color;
-  text-shadow: $close-text-shadow;
-
-  &:hover,
-  &:focus {
-    color: $close-color;
-    text-decoration: none;
-    cursor: pointer;
-    @include opacity(.5);
-  }
-
-  // [converter] extracted button& to button.close
-}
-
-// Additional properties for button version
-// iOS requires the button element instead of an anchor tag.
-// If you want the anchor version, it requires `href="#"`.
-// See https://developer.mozilla.org/en-US/docs/Web/Events/click#Safari_Mobile
-button.close {
-  padding: 0;
-  cursor: pointer;
-  background: transparent;
-  border: 0;
-  -webkit-appearance: none;
-}
-
-.modal-label-text {
-  margin-bottom: 2px;
+  .modal-lg { width: $modal-lg; }
 }

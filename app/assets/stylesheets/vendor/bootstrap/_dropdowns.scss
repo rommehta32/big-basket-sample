@@ -2,6 +2,7 @@
 // Dropdown menus
 // --------------------------------------------------
 
+
 // Dropdown arrow/caret
 .caret {
   display: inline-block;
@@ -9,11 +10,10 @@
   height: 0;
   margin-left: 2px;
   vertical-align: middle;
-  border-top: $caret-width-base dashed;
-  border-top: $caret-width-base solid \9; // IE8
+  border-top:   $caret-width-base dashed;
+  border-top:   $caret-width-base solid \9; // IE8
   border-right: $caret-width-base solid transparent;
-  border-left: $caret-width-base solid transparent;
-  cursor: pointer;
+  border-left:  $caret-width-base solid transparent;
 }
 
 // The dropdown wrapper (div)
@@ -35,7 +35,7 @@
   z-index: $zindex-dropdown;
   display: none; // none by default, but block on "open" of the menu
   float: left;
-  //min-width: 160px;
+  min-width: 160px;
   padding: 5px 0;
   margin: 2px 0 0; // override default ul
   list-style: none;
@@ -44,10 +44,10 @@
   background-color: $dropdown-bg;
   border: 1px solid $dropdown-fallback-border; // IE8 fallback
   border: 1px solid $dropdown-border;
-  @include box-shadow(0 6px 12px rgba(0, 0, 0, .175));
+  border-radius: $border-radius-base;
+  @include box-shadow(0 6px 12px rgba(0,0,0,.175));
   background-clip: padding-box;
 
-  //border-radius: $border-radius-base;
   // Aligns the dropdown menu to right
   //
   // Deprecated as of 3.1.0 in favor of `.dropdown-menu-[dir]`
@@ -91,7 +91,7 @@
     color: $dropdown-link-active-color;
     text-decoration: none;
     outline: 0;
-    background-color: #C9C9C9;
+    background-color: $dropdown-link-active-bg;
   }
 }
 
@@ -138,7 +138,6 @@
   left: auto; // Reset the default from `.dropdown-menu`
   right: 0;
 }
-
 // With v3, we enabled auto-flipping if you have a dropdown within a right
 // aligned nav component. To enable the undoing of that, we provide an override
 // to restore the default dropdown menu alignment.
@@ -198,6 +197,7 @@
   }
 }
 
+
 // Component alignment
 //
 // Reiterate per navbar.less and the modified component alignment there.
@@ -205,14 +205,12 @@
 @media (min-width: $grid-float-breakpoint) {
   .navbar-right {
     .dropdown-menu {
-      right: 0;
-      left: auto;
+      right: 0; left: auto;
     }
     // Necessary for overrides of the default right aligned menu.
     // Will remove come v4 in all likelihood.
     .dropdown-menu-left {
-      left: 0;
-      right: auto;
+      left: 0; right: auto;
     }
   }
 }

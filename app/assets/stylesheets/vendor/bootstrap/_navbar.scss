@@ -1,77 +1,27 @@
 //
 // Navbars
 // --------------------------------------------------
+
+
 // Wrapper and base class
 //
 // Provide a static navbar from which we expand to create full-width, fixed, and
 // other navbar variations.
-//.navbar {
-//  position: relative;
-//  min-height: $navbar-height; // Ensure a navbar always shows (e.g., without a .navbar-brand in collapsed mode)
-//  margin-bottom: $navbar-margin-bottom;
-//  border: 1px solid transparent;
-//
-//  // Prevent floats from breaking the navbar
-//  @include clearfix;
-//
-//  @media (min-width: $grid-float-breakpoint) {
-//    border-radius: $navbar-border-radius;
-//  }
-//}
-@import "compass/css3";
-@import "components/media_queries";
 
 .navbar {
-
+  position: relative;
   min-height: $navbar-height; // Ensure a navbar always shows (e.g., without a .navbar-brand in collapsed mode)
-  margin-bottom: 0;
-  border: none;
-  z-index: 16;
-  font-size: $font-size-base;
+  margin-bottom: $navbar-margin-bottom;
+  border: 1px solid transparent;
+
   // Prevent floats from breaking the navbar
-  @extend .clearfix !optional;
-    border-radius: 0;
-  }
+  @include clearfix;
 
-.navbar-nav {
-
-  > li {
-    color: #FFFFFF;
-    line-height: 60px;
-    font-size: 18px;
-  }
-  .header-form {
-    line-height: normal;
+  @media (min-width: $grid-float-breakpoint) {
+    border-radius: $navbar-border-radius;
   }
 }
 
-.profile-logo {
-  height: 50px;
-  width: 50px;
-  @include border-radius(50px);
-  padding: 5px;
-}
-
-.header-user-title {
-  @include media-query(small) {
-    display: none;
-  }
-
-  @include media-query(medium) {
-    display: inline;
-    padding-right: 5px;
-  }
-}
-
-.header-form {
-  position: static;
-  padding-top: 19px;
-}
-
-.header-form form {
-  padding: 0 !important;
-
-}
 
 // Navbar heading
 //
@@ -81,8 +31,11 @@
 .navbar-header {
   @include clearfix;
 
+  @media (min-width: $grid-float-breakpoint) {
     float: left;
+  }
 }
+
 
 // Navbar collapse (body)
 //
@@ -97,9 +50,9 @@
 .navbar-collapse {
   overflow-x: visible;
   padding-right: $navbar-padding-horizontal;
-  padding-left: $navbar-padding-horizontal;
+  padding-left:  $navbar-padding-horizontal;
   border-top: 1px solid transparent;
-  box-shadow: inset 0 1px 0 rgba(255, 255, 255, .1);
+  box-shadow: inset 0 1px 0 rgba(255,255,255,.1);
   @include clearfix;
   -webkit-overflow-scrolling: touch;
 
@@ -107,6 +60,7 @@
     overflow-y: auto;
   }
 
+  @media (min-width: $grid-float-breakpoint) {
     width: auto;
     border-top: 0;
     box-shadow: none;
@@ -130,6 +84,7 @@
       padding-left: 0;
       padding-right: 0;
     }
+  }
 }
 
 .navbar-fixed-top,
@@ -137,9 +92,12 @@
   .navbar-collapse {
     max-height: $navbar-collapse-max-height;
 
+    @media (max-device-width: $screen-xs-min) and (orientation: landscape) {
       max-height: 200px;
+    }
   }
 }
+
 
 // Both navbar header and collapse
 //
@@ -150,14 +108,15 @@
   > .navbar-header,
   > .navbar-collapse {
     margin-right: -$navbar-padding-horizontal;
-    margin-left: -$navbar-padding-horizontal;
+    margin-left:  -$navbar-padding-horizontal;
 
     @media (min-width: $grid-float-breakpoint) {
       margin-right: 0;
-      margin-left: 0;
+      margin-left:  0;
     }
   }
 }
+
 
 //
 // Navbar alignment options
@@ -188,17 +147,16 @@
     border-radius: 0;
   }
 }
-
 .navbar-fixed-top {
   top: 0;
   border-width: 0 0 1px;
 }
-
 .navbar-fixed-bottom {
   bottom: 0;
   margin-bottom: 0; // override .navbar defaults
   border-width: 1px 0 0;
 }
+
 
 // Brand/project name
 
@@ -206,8 +164,8 @@
   float: left;
   padding: $navbar-padding-vertical $navbar-padding-horizontal;
   font-size: $font-size-large;
-  line-height: $navbar-height;
-  //height: $navbar-height;
+  line-height: $line-height-computed;
+  height: $navbar-height;
 
   &:hover,
   &:focus {
@@ -218,11 +176,14 @@
     display: block;
   }
 
+  @media (min-width: $grid-float-breakpoint) {
     .navbar > .container &,
     .navbar > .container-fluid & {
       margin-left: -$navbar-padding-horizontal;
     }
+  }
 }
+
 
 // Navbar toggle
 //
@@ -257,59 +218,65 @@
     margin-top: 4px;
   }
 
+  @media (min-width: $grid-float-breakpoint) {
     display: none;
+  }
 }
+
 
 // Navbar nav links
 //
-// Builds on top of the `.nav` gwt_components with its own modifier class to make
+// Builds on top of the `.nav` components with its own modifier class to make
 // the nav the full height of the horizontal nav (above 768px).
 
 .navbar-nav {
   margin: ($navbar-padding-vertical / 2) (-$navbar-padding-horizontal);
 
   > li > a {
-    padding-top: 10px;
+    padding-top:    10px;
     padding-bottom: 10px;
-    line-height: $navbar-height;
+    line-height: $line-height-computed;
   }
-  //
-  //@media (max-width: $grid-float-breakpoint-max) {
-  //  // Dropdowns get custom display when collapsed
-  //  .open .dropdown-menu {
-  //    position: static;
-  //    float: none;
-  //    width: auto;
-  //    margin-top: 0;
-  //    background-color: transparent;
-  //    border: 0;
-  //    box-shadow: none;
-  //    > li > a,
-  //    .dropdown-header {
-  //      padding: 5px 15px 5px 25px;
-  //    }
-  //    > li > a {
-  //      line-height: $line-height-computed;
-  //      &:hover,
-  //      &:focus {
-  //        background-image: none;
-  //      }
-  //    }
-  //  }
-  //}
+
+  @media (max-width: $grid-float-breakpoint-max) {
+    // Dropdowns get custom display when collapsed
+    .open .dropdown-menu {
+      position: static;
+      float: none;
+      width: auto;
+      margin-top: 0;
+      background-color: transparent;
+      border: 0;
+      box-shadow: none;
+      > li > a,
+      .dropdown-header {
+        padding: 5px 15px 5px 25px;
+      }
+      > li > a {
+        line-height: $line-height-computed;
+        &:hover,
+        &:focus {
+          background-image: none;
+        }
+      }
+    }
+  }
 
   // Uncollapse the nav
-    float: right;
+  @media (min-width: $grid-float-breakpoint) {
+    float: left;
     margin: 0;
 
     > li {
       float: left;
       > a {
-        padding-top: $navbar-padding-vertical;
+        padding-top:    $navbar-padding-vertical;
         padding-bottom: $navbar-padding-vertical;
       }
     }
+  }
 }
+
 
 // Navbar form
 //
@@ -322,7 +289,7 @@
   padding: 10px $navbar-padding-horizontal;
   border-top: 1px solid transparent;
   border-bottom: 1px solid transparent;
-  $shadow: inset 0 1px 0 rgba(255, 255, 255, .1), 0 1px 0 rgba(255, 255, 255, .1);
+  $shadow: inset 0 1px 0 rgba(255,255,255,.1), 0 1px 0 rgba(255,255,255,.1);
   @include box-shadow($shadow);
 
   // Mixin behavior for optimum display
@@ -353,6 +320,7 @@
   }
 }
 
+
 // Dropdown menus
 
 // Menu position and menu carets
@@ -360,13 +328,13 @@
   margin-top: 0;
   @include border-top-radius(0);
 }
-
 // Menu position and menu caret support for dropups via extra dropup class
 .navbar-fixed-bottom .navbar-nav > li > .dropdown-menu {
   margin-bottom: 0;
   @include border-top-radius($navbar-border-radius);
   @include border-bottom-radius(0);
 }
+
 
 // Buttons in navbars
 //
@@ -383,6 +351,7 @@
   }
 }
 
+
 // Text in navbars
 //
 // Add a class to make any element properly align itself vertically within the navbars.
@@ -397,13 +366,14 @@
   }
 }
 
+
 // Component alignment
 //
 // Repurpose the pull utilities as their own navbar utilities to avoid specificity
 // issues with parents and chaining. Only do this when the navbar is uncollapsed
 // though so that navbar contents properly stack and align in mobile.
 //
-// Declared after the navbar gwt_components to ensure more specificity on the margins.
+// Declared after the navbar components to ensure more specificity on the margins.
 
 @media (min-width: $grid-float-breakpoint) {
   .navbar-left {
@@ -411,13 +381,14 @@
   }
   .navbar-right {
     float: right !important;
-    //margin-right: -$navbar-padding-horizontal;
+  margin-right: -$navbar-padding-horizontal;
 
     ~ .navbar-right {
       margin-right: 0;
     }
   }
 }
+
 
 // Alternate navbars
 // --------------------------------------------------
@@ -526,6 +497,7 @@
       }
     }
   }
+
 
   // Links in navbars
   //
