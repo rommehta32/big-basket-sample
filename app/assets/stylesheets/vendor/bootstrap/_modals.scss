@@ -6,9 +6,6 @@
 // .modal-dialog    - positioning shell for the actual modal
 // .modal-content   - actual modal w/ bg and corners and shit
 // Kill the scroll on the body
-@import "compass/css3";
-@import "compass/css3/flexbox";
-@import "lib/eclt_variables";
 @import "vendor/bootstrap/variables";
 
 .modal-open {
