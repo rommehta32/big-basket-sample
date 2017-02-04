@@ -1,0 +1,19 @@
+<div class="row">
+  <div class="col-xs-offset-4 col-xs-4 basket-form">
+    <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
+        <%= render partial: 'shared/flash', locals: {resource: resource} %>
+        <div class="font-size-md text-center form-header">
+          <span>Sign in to Big Basket</span>
+        </div>
+        <div class="form-group">
+          <%= f.email_field :email, autofocus: true, class: 'form-control', placeholder: 'Email' %>
+        </div>
+        <div class="form-group">
+          <%= f.password_field :password, autocomplete: "off", class: 'form-control', placeholder: 'Password' %>
+        </div>
+        <div class="form-group">
+          <%= f.submit "Sign in", class: 'form-control font-size-md submit-btn' %>
+        </div>
+    <% end %>
+  </div>
+</div>

@@ -1,0 +1,17 @@
+<% unless resource.errors.empty?
+     messages = []
+     resource.errors.each do |attr, msg|
+       messages << "#{attr.to_s.humanize.sub('.','-')} #{msg}" if resource.errors[attr].first == msg
+     end %>
+    <div class="row">
+      <div class="error-alert col-xs-12">
+        <ul class="alert-message">
+          <% messages.each do |message| %>
+              <li class="flash-message-li">
+                <span><%= message %></span>
+              </li>
+          <% end %>
+        </ul>
+      </div>
+    </div>
+<% end %>

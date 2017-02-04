@@ -8,6 +8,146 @@
     <case-sensitivity plain-identifiers="mixed" quoted-identifiers="upper"/>
     <database-model serializer="dbm" rdbms="MYSQL" format-version="2.4">
       <schema id="1" name="big_basket_dev"/>
+      <table id="2" parent="1" name="schema_migrations"/>
+      <table id="3" parent="1" name="users"/>
+      <table id="4" parent="1" name="items"/>
+      <column id="5" parent="2" name="version">
+        <mandatory>1</mandatory>
+        <data-type>varchar(255)</data-type>
+      </column>
+      <index id="6" parent="2" name="unique_schema_migrations">
+        <columns>version</columns>
+        <desc-columns></desc-columns>
+        <unique>1</unique>
+      </index>
+      <key id="7" parent="2" name="unique_schema_migrations">
+        <columns>version</columns>
+        <underlying-index>unique_schema_migrations</underlying-index>
+      </key>
+      <column id="8" parent="3" name="id">
+        <mandatory>1</mandatory>
+        <data-type>int(11)</data-type>
+      </column>
+      <column id="9" parent="3" name="email">
+        <mandatory>1</mandatory>
+        <data-type>varchar(255)</data-type>
+        <default-expression>&apos;&apos;</default-expression>
+      </column>
+      <column id="10" parent="3" name="encrypted_password">
+        <mandatory>1</mandatory>
+        <data-type>varchar(255)</data-type>
+        <default-expression>&apos;&apos;</default-expression>
+      </column>
+      <column id="11" parent="3" name="reset_password_token">
+        <data-type>varchar(255)</data-type>
+      </column>
+      <column id="12" parent="3" name="reset_password_sent_at">
+        <data-type>datetime</data-type>
+      </column>
+      <column id="13" parent="3" name="remember_created_at">
+        <data-type>datetime</data-type>
+      </column>
+      <column id="14" parent="3" name="sign_in_count">
+        <mandatory>1</mandatory>
+        <data-type>int(11)</data-type>
+        <default-expression>&apos;0&apos;</default-expression>
+      </column>
+      <column id="15" parent="3" name="current_sign_in_at">
+        <data-type>datetime</data-type>
+      </column>
+      <column id="16" parent="3" name="last_sign_in_at">
+        <data-type>datetime</data-type>
+      </column>
+      <column id="17" parent="3" name="current_sign_in_ip">
+        <data-type>varchar(255)</data-type>
+      </column>
+      <column id="18" parent="3" name="last_sign_in_ip">
+        <data-type>varchar(255)</data-type>
+      </column>
+      <column id="19" parent="3" name="created_at">
+        <mandatory>1</mandatory>
+        <data-type>datetime</data-type>
+      </column>
+      <column id="20" parent="3" name="updated_at">
+        <mandatory>1</mandatory>
+        <data-type>datetime</data-type>
+      </column>
+      <column id="21" parent="3" name="type">
+        <data-type>varchar(255)</data-type>
+      </column>
+      <column id="22" parent="3" name="name">
+        <data-type>varchar(255)</data-type>
+      </column>
+      <index id="23" parent="3" name="index_users_on_email">
+        <columns>email</columns>
+        <desc-columns></desc-columns>
+        <unique>1</unique>
+      </index>
+      <index id="24" parent="3" name="index_users_on_reset_password_token">
+        <columns>reset_password_token</columns>
+        <desc-columns></desc-columns>
+        <unique>1</unique>
+      </index>
+      <key id="25" parent="3" name="index_users_on_email">
+        <columns>email</columns>
+        <underlying-index>index_users_on_email</underlying-index>
+      </key>
+      <key id="26" parent="3" name="index_users_on_reset_password_token">
+        <columns>reset_password_token</columns>
+        <underlying-index>index_users_on_reset_password_token</underlying-index>
+      </key>
+      <key id="27" parent="3" name="PRIMARY">
+        <columns>id</columns>
+        <primary>1</primary>
+      </key>
+      <column id="28" parent="4" name="id">
+        <mandatory>1</mandatory>
+        <data-type>int(11)</data-type>
+      </column>
+      <column id="29" parent="4" name="created_at">
+        <mandatory>1</mandatory>
+        <data-type>datetime</data-type>
+      </column>
+      <column id="30" parent="4" name="updated_at">
+        <mandatory>1</mandatory>
+        <data-type>datetime</data-type>
+      </column>
+      <column id="31" parent="4" name="name">
+        <data-type>varchar(255)</data-type>
+      </column>
+      <column id="32" parent="4" name="unit_price">
+        <data-type>float</data-type>
+      </column>
+      <column id="33" parent="4" name="quantity">
+        <data-type>varchar(255)</data-type>
+      </column>
+      <column id="34" parent="4" name="updated_by">
+        <data-type>int(11)</data-type>
+      </column>
+      <index id="35" parent="4" name="fk_rails_5944ef6d1f">
+        <columns>updated_by</columns>
+        <desc-columns></desc-columns>
+      </index>
+      <key id="36" parent="4" name="PRIMARY">
+        <columns>id</columns>
+        <primary>1</primary>
+      </key>
+      <foreign-key id="37" parent="4" name="fk_rails_5944ef6d1f">
+        <columns>updated_by</columns>
+        <ref-key>~.users.PRIMARY</ref-key>
+        <cascade-update-rule>restrict</cascade-update-rule>
+        <cascade-delete-rule>restrict</cascade-delete-rule>
+      </foreign-key>
+    </database-model>
+  </data-source>
+  <data-source name="MySql - big_basket_test@localhost" uuid="20a4487f-61f9-4f71-b820-7a2d5ea745e3">
+    <database-info product="MySQL" version="5.6.26" jdbc-version="4.0" driver-name="MySQL Connector Java" driver-version="mysql-connector-java-5.1.34 ( Revision: jess.balint@oracle.com-20141014163213-wqbwpf1ok2kvo1om )">
+      <extra-name-characters>#@</extra-name-characters>
+      <identifier-quote-string>`</identifier-quote-string>
+    </database-info>
+    <case-sensitivity plain-identifiers="mixed" quoted-identifiers="upper"/>
+    <database-model serializer="dbm" rdbms="MYSQL" format-version="2.4">
+      <schema id="1" name="big_basket_test"/>
     </database-model>
   </data-source>
 </component>

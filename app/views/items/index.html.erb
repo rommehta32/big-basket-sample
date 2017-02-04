@@ -1,0 +1,36 @@
+<div class="row">
+  <div class="col-xs-6 font-size-xlg">
+    Items Inventory
+  </div>
+  <div class="col-xs-6 text-right">
+    <%= link_to 'Add New Item', new_item_path %>
+  </div>
+</div>
+<table class="table table-bordered">
+  <thead>
+  <tr>
+    <th>Name</th>
+    <th>Quantity Available</th>
+    <th>Unit Price</th>
+    <% if current_user.is_admin? %>
+      <th>Actions</th>
+     <% end %>
+  </tr>
+  </thead>
+  <tbody>
+  <% if @items.length > 0 %>
+    <% @items.each do |item| %>
+      <tr>
+        <td><%= item.name %></td>
+        <td><%= item.quantity %></td>
+        <td><%= item.unit_price %></td>
+        <% if current_user.is_admin? %>
+          <td><%= link_to 'Edit', edit_item_path(item.id) %> &nbsp; <%= link_to 'Delete', item_path(item.id), method: 'delete' %> </td>
+        <% end %>
+      </tr>
+    <% end %>
+  <% else %>
+    <tr> <td colspan="4" class="text-center">There are currently no items in inventory.</td></tr>
+  <% end %>
+  </tbody>
+</table>

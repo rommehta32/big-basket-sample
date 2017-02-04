@@ -1,4 +1,18 @@
+@import "lib/variables";
+
+.navbar-default{
+  padding: 0 20px;
+}
 .navbar-fixed-top {
   top: 0;
   border-width: 0 0 1px;
+  .navbar-header{
+    cursor: pointer;
+    color: $colorGreen;
+    padding-top: 12px;
+  }
+  .navbar{
+    color: $colorGreen;
+    cursor: pointer;
+  }
 }

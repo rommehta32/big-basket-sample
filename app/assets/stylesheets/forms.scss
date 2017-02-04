@@ -1,0 +1,14 @@
+@import "lib/variables";
+
+.basket-form{
+  border: 1px solid $colorBorder;
+  padding: 20px;
+  .form-header{
+    margin-top: 10px;
+    margin-bottom: 10px;
+  }
+  .submit-btn{
+    cursor: pointer;
+    background-color: $colorBtn;
+  }
+}

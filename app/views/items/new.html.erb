@@ -1,0 +1,11 @@
+<div class="row">
+  <div class="col-xs-offset-4 col-xs-4 basket-form">
+    <%= form_for(@item, html: {}) do |f| %>
+        <%= render partial: 'shared/flash', locals: {resource: @item} %>
+        <div class="font-size-md text-center form-header">
+          <span>Create New Item</span>
+        </div>
+        <%= render 'item', f:f %>
+    <% end %>
+  </div>
+</div>

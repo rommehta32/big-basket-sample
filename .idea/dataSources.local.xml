@@ -7,5 +7,11 @@
       <schema-pattern>big_basket_dev.*</schema-pattern>
       <default-schemas>big_basket_dev.*</default-schemas>
     </data-source>
+    <data-source name="MySql - big_basket_test@localhost" uuid="20a4487f-61f9-4f71-b820-7a2d5ea745e3">
+      <secret-storage>master_key</secret-storage>
+      <user-name>root</user-name>
+      <schema-pattern>big_basket_test.*</schema-pattern>
+      <default-schemas>big_basket_test.*</default-schemas>
+    </data-source>
   </component>
 </project>
