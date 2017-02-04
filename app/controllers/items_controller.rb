@@ -38,7 +38,8 @@ class ItemsController < AdministratorApplicationController
   def destroy
     @item = Item.find(params[:id])
     @item.destroy! if @item
-    redirect_to items_path, notice: 'Successfully item deleted.'
+    flash[:success] = "Successfully item deleted."
+    render json: {message: 'Successfully item deleted.'}
   end
 
   private

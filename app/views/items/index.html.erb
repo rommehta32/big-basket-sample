@@ -8,7 +8,7 @@
     <% end %>
   </div>
 </div>
-<table class="table table-bordered">
+<table class="table table-striped table-bordered">
   <thead>
   <tr>
     <th>Name</th>
@@ -22,12 +22,12 @@
   <tbody>
   <% if @items.length > 0 %>
     <% @items.each do |item| %>
-      <tr>
+      <tr class="item" data-id="<%= item.id %>">
         <td><%= item.name %></td>
         <td><%= item.quantity %></td>
         <td><%= item.unit_price %></td>
         <% if current_user.is_admin? %>
-          <td><%= link_to 'Edit', edit_item_path(item.id) %> &nbsp; <%= link_to 'Delete', item_path(item.id), method: 'delete' %> </td>
+          <td><%= link_to 'Edit', edit_item_path(item.id) %> &nbsp; <span class="link delete-item">Delete</span> </td>
         <% end %>
       </tr>
     <% end %>
@@ -36,3 +36,7 @@
   <% end %>
   </tbody>
 </table>
+
+<script>
+  var items = new BigBasket.Items($('.table'));
+</script>

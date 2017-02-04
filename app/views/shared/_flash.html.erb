@@ -4,14 +4,22 @@
        messages << "#{attr.to_s.humanize.sub('.','-')} #{msg}" if resource.errors[attr].first == msg
      end %>
     <div class="row">
-      <div class="error-alert col-xs-12">
+      <div class="alert alert-danger alert-dismissable fade in">
+        <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
         <ul class="alert-message">
           <% messages.each do |message| %>
-              <li class="flash-message-li">
+              <li>
                 <span><%= message %></span>
               </li>
           <% end %>
         </ul>
       </div>
     </div>
+    <script>
+      $(document).ready(function () {
+        setTimeout(function () {
+          $(".alert").fadeOut();
+        }, 7500)
+      });
+    </script>
 <% end %>

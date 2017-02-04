@@ -1,0 +1,20 @@
+<% flash.each do |key, value| %>
+    <% flash_id = "flash-message-#{(rand * 10000).round(0)}" %>
+    <div class="row">
+      <div id='<%= flash_id %>' class="alert <%= flash_class(key) %> alert-dismissable fade in">
+        <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+        <ul class="alert-message">
+          <li>
+            <span><%= value %></span>
+          </li>
+        </ul>
+      </div>
+    </div>
+    <script>
+      $(document).ready(function () {
+        setTimeout(function () {
+          $("#<%= flash_id %>").fadeOut();
+        }, 7500)
+      });
+    </script>
+<% end %>
