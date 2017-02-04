@@ -6,6 +6,6 @@ module ApplicationHelper
         error: 'alert-danger',
     }
     klass = style_klass[level.to_sym]
-    klass.blank? ? 'alert-success' : klass
+    klass.blank? ? 'alert-danger' : klass
   end
 end
