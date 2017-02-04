@@ -3,7 +3,9 @@
     Items Inventory
   </div>
   <div class="col-xs-6 text-right">
-    <%= link_to 'Add New Item', new_item_path %>
+    <% if current_user.is_admin? %>
+      <%= link_to 'Add New Item', new_item_path %>
+    <% end %>
   </div>
 </div>
 <table class="table table-bordered">
