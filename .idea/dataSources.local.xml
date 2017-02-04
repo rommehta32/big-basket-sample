@@ -13,5 +13,11 @@
       <schema-pattern>big_basket_test.*</schema-pattern>
       <default-schemas>big_basket_test.*</default-schemas>
     </data-source>
+    <data-source name="MySql - sql6157136@sql6.freemysqlhosting.net" uuid="2b31c484-b0b1-462d-8263-34f6969370c7">
+      <secret-storage>master_key</secret-storage>
+      <user-name>sql6157136</user-name>
+      <schema-pattern>sql6157136.*</schema-pattern>
+      <default-schemas>sql6157136.*</default-schemas>
+    </data-source>
   </component>
 </project>

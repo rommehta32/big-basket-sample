@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
-  <component name="DataSourceManagerImpl" format="xml" hash="393709589">
+  <component name="DataSourceManagerImpl" format="xml" hash="909457615">
     <data-source source="LOCAL" name="MySql - big_basket_dev@localhost" uuid="e43ceb18-81c2-419f-ac47-f43ea5169998">
       <driver-ref>mysql</driver-ref>
       <synchronize>true</synchronize>
@@ -19,6 +19,19 @@
       <synchronize>true</synchronize>
       <jdbc-driver>com.mysql.jdbc.Driver</jdbc-driver>
       <jdbc-url>jdbc:mysql://localhost:3306/big_basket_test</jdbc-url>
+      <driver-properties>
+        <property name="zeroDateTimeBehavior" value="convertToNull" />
+        <property name="tinyInt1isBit" value="false" />
+        <property name="characterEncoding" value="utf8" />
+        <property name="characterSetResults" value="utf8" />
+        <property name="yearIsDateType" value="false" />
+      </driver-properties>
+    </data-source>
+    <data-source source="LOCAL" name="MySql - sql6157136@sql6.freemysqlhosting.net" uuid="2b31c484-b0b1-462d-8263-34f6969370c7">
+      <driver-ref>mysql</driver-ref>
+      <synchronize>true</synchronize>
+      <jdbc-driver>com.mysql.jdbc.Driver</jdbc-driver>
+      <jdbc-url>jdbc:mysql://sql6.freemysqlhosting.net:3306/sql6157136</jdbc-url>
       <driver-properties>
         <property name="zeroDateTimeBehavior" value="convertToNull" />
         <property name="tinyInt1isBit" value="false" />

@@ -280,4 +280,14 @@
       </key>
     </database-model>
   </data-source>
+  <data-source name="MySql - sql6157136@sql6.freemysqlhosting.net" uuid="2b31c484-b0b1-462d-8263-34f6969370c7">
+    <database-info product="MySQL" version="5.5.49-0ubuntu0.14.04.1" jdbc-version="4.0" driver-name="MySQL Connector Java" driver-version="mysql-connector-java-5.1.34 ( Revision: jess.balint@oracle.com-20141014163213-wqbwpf1ok2kvo1om )">
+      <extra-name-characters>#@</extra-name-characters>
+      <identifier-quote-string>`</identifier-quote-string>
+    </database-info>
+    <case-sensitivity plain-identifiers="exact" quoted-identifiers="exact"/>
+    <database-model serializer="dbm" rdbms="MYSQL" format-version="2.4">
+      <schema id="1" name="sql6157136"/>
+    </database-model>
+  </data-source>
 </component>
