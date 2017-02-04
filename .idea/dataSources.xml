@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
-  <component name="DataSourceManagerImpl" format="xml" hash="2265431303">
+  <component name="DataSourceManagerImpl" format="xml" hash="393709589">
     <data-source source="LOCAL" name="MySql - big_basket_dev@localhost" uuid="e43ceb18-81c2-419f-ac47-f43ea5169998">
       <driver-ref>mysql</driver-ref>
       <synchronize>true</synchronize>

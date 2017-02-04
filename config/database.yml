@@ -49,7 +49,10 @@ test:
 #
 production:
   <<: *default
+  host: ec2-54-204-1-40.compute-1.amazonaws.com
   adapter: postgresql
-  database: big_basket_production
-  username: big_basket
-  password: <%= ENV['BIG_BASKET_DATABASE_PASSWORD'] %>
+  database: dfr0a1gcgqt9eq
+  username: ceusfdvtgrbdnz
+  port: 5432
+  password: 78c97546fe711d8eb7ca0836c7c77fdb7d98c630eb026f1126bda1cc857df314
+  url: postgres://ceusfdvtgrbdnz:78c97546fe711d8eb7ca0836c7c77fdb7d98c630eb026f1126bda1cc857df314@ec2-54-204-1-40.compute-1.amazonaws.com:5432/dfr0a1gcgqt9eq
