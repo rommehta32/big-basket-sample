@@ -1,0 +1,24 @@
+/* line 7, /Users/romil/work/big_basket/app/assets/stylesheets/typography/regular.css.scss */
+.font-size-sm {
+  font-size: 12px !important;
+}
+
+/* line 10, /Users/romil/work/big_basket/app/assets/stylesheets/typography/regular.css.scss */
+.font-size-xsm {
+  font-size: 10px !important;
+}
+
+/* line 13, /Users/romil/work/big_basket/app/assets/stylesheets/typography/regular.css.scss */
+.font-size-md {
+  font-size: 16px !important;
+}
+
+/* line 16, /Users/romil/work/big_basket/app/assets/stylesheets/typography/regular.css.scss */
+.font-size-lg {
+  font-size: 18px !important;
+}
+
+/* line 19, /Users/romil/work/big_basket/app/assets/stylesheets/typography/regular.css.scss */
+.font-size-xlg {
+  font-size: 20px !important;
+}
